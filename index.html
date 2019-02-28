@@ -14,7 +14,9 @@
         }
     });
     const urlParams = new URLSearchParams(window.location.search);
-    console.log(urlParams.entries());
+    for (let item in urlParams.entries()) {
+        console.log(item);
+    }
     const clientId = urlParams.get('clientId') || sessionStorage.getItem('clientId');
     if (clientId) {
       sessionStorage.setItem('clientId', clientId);

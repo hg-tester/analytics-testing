@@ -2,25 +2,14 @@
 <html>
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135367989-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'UA-135367989-1', {
-      'custom_map': {
-        'dimension1': 'Client ID'
-      }
-    });
-    const urlParams = new URLSearchParams(window.location.search);
-    const clientId = urlParams.get('clientId') || sessionStorage.getItem('clientId');
-    if (clientId) {
-      sessionStorage.setItem('clientId', clientId);
-      gtag('event', 'client_id_dimension', {'Client ID': clientId});
-    }
-  </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135367989-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-135367989-2');
+</script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Landing Page</title>

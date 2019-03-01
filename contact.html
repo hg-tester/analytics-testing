@@ -10,21 +10,20 @@
         dataLayer.push(arguments);
     }
     gtag('js', new Date());
-    gtag('config', 'UA-135367989-2', {
-        'custom_map': {
-        'dimension1': 'Client ID'
-        }
-    });
+   
+    const customMap = {
+        'dimension1_key': 'DATE',
+        'dimension1_value': new Date(),
+    };
+    let num = 2;
     const urlParams = new URLSearchParams(window.location.search);
     for (let pair of urlParams.entries()) {
+        customMap[`dimension${num}_key`] = pair[0];
+        customMap[`dimension${num}_value`] = pair[1];
         console.log("test", pair[0]+ ', '+ pair[1]); 
+        num += 1;
     }
-    const clientId = urlParams.get('clientId') || sessionStorage.getItem('clientId');
-    if (clientId) {
-      sessionStorage.setItem('clientId', clientId);
-      gtag('event', 'client_id_dimension', {'Client ID': clientId});
-    }
-
+    gtag('config', 'UA-135367989-2', customMap);
 </script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">

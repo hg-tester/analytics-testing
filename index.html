@@ -17,12 +17,15 @@
         };
         let num = 2;
         const urlParams = new URLSearchParams(window.location.search);
-        for (let pair of urlParams.entries()) {
+        function buildObject () {
+          for (let pair of urlParams.entries()) {
             customMap[`dimension${num}_key`] = pair[0];
             customMap[`dimension${num}_value`] = pair[1];
             console.log("test", pair[0]+ ', '+ pair[1]); 
             num += 1;
+          }
         }
+        await buildObject();
         gtag('config', 'UA-135367989-2', customMap);
     </script>
   <meta charset="utf-8">

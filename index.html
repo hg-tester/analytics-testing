@@ -11,37 +11,26 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135367989-2"></script>
 <script>
+        const v4 = require('uuid/v4');
+        let personId = undefined;
+        if (localStorage.personId) {
+          personId = localStorage.getItem('personId');
+        }
+        else {
+          personId = v4();
+          localStorage.setItem('personID', personId);
+        }
         window.dataLayer = window.dataLayer || [];
         function gtag () {
             dataLayer.push(arguments);
         }
-       
         const customMap = {
-            'activityId': null,
-            'personId': null,
-            'activityDate': new Date(),
-            'activitySource': null,
-            'activityType': null,
-            'sourcePersonId': null,
-            'visitorExternalId': null,
-            'referrerUrl': null,
-            'ipAddress': null,
-            'numberOfPages': null,
-            'firstPageViewUrl': null,
-            'duration': null,
+          'custom_map': {'dimension1': 'personId'}
         };
-        let num = 2;
-        const urlParams = new URLSearchParams(window.location.search);
-        function buildObject () {
-          for (let pair of urlParams.entries()) {
-            customMap[`dimension${num}_key`] = pair[0];
-            customMap[`dimension${num}_value`] = pair[1];
-            console.log("test", pair[0]+ ', '+ pair[1]); 
-            num += 1;
-          }
-        }
-        await buildObject();
+        // const urlParams = new URLSearchParams(window.location.search);
         gtag('config', 'UA-135367989-2', customMap);
+        gtag('event', '', {'personId': personId});
+       
     </script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">

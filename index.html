@@ -12,6 +12,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135367989-2"></script>
 <script>
         let personId = undefined;
+        let sessionId = undefined;
         if (localStorage.personId) {
           personId = localStorage.getItem('personId');
         }
@@ -19,8 +20,13 @@
           personId = Math.random() * (200,000,000,000 - 1) + 1;
           localStorage.setItem('personID', personId);
         }
-        const sessionId = Math.random() * (200,000,000,000 - 1) + 1;
-        sessionStorage.setItem('sessionId', sessionId);
+        if (sessionStorage.sessionId) {
+          sessionId = sessionStorage.getItem('sessionId');
+        }
+        else {
+          sessionId = Math.random() * (200,000,000,000 - 1) + 1;
+          sessionStorage.setItem('sessionId', sessionId);
+        }
         window.dataLayer = window.dataLayer || [];
         function gtag () {
             dataLayer.push(arguments);

@@ -19,16 +19,22 @@
           personId = Math.random() * (200,000,000,000 - 1) + 1;
           localStorage.setItem('personID', personId);
         }
+        sessionStorage.setItem('seesionId', Math.random() * (200,000,000,000 - 1) + 1);
         window.dataLayer = window.dataLayer || [];
         function gtag () {
             dataLayer.push(arguments);
         }
         const customMap = {
-          'custom_map': {'dimension1': 'personId'}
+          'custom_map': {
+            'dimension1': 'personId',
+            'dimension2': 'sessionId',
+            'metric1': 'timestamp'}
         };
         // const urlParams = new URLSearchParams(window.location.search);
         gtag('config', 'UA-135367989-2', customMap);
         gtag('event', 'session_start', {'personId': personId});
+        gtag('event', 'session_start', {'sessionId': session});
+        gtag('event', 'session_start', {'timestamp': new Date()});
        
     </script>
   <meta charset="utf-8">

@@ -2,49 +2,47 @@
 <html>
 <head>
    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-NDNPG9C');</script>
-    <!-- End Google Tag Manager -->
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135367989-2"></script>
-<script>
-        let personId = undefined;
-        let sessionId = undefined;
-        if (localStorage.personId) {
-          personId = localStorage.getItem('personId');
-        }
-        else {
-          personId = Math.random() * (200,000,000,000 - 1) + 1;
-          localStorage.setItem('personID', personId);
-        }
-        if (sessionStorage.sessionId) {
-          sessionId = sessionStorage.getItem('sessionId');
-        }
-        else {
-          sessionId = Math.random() * (200,000,000,000 - 1) + 1;
-          sessionStorage.setItem('sessionId', sessionId);
-        }
-        window.dataLayer = window.dataLayer || [];
-        function gtag () {
-            dataLayer.push(arguments);
-        }
-        const customMap = {
-          'custom_map': {
-            'dimension1': 'personId',
-            'dimension2': 'sessionId',
-            'dimension3': 'timestamp'
+   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-NDNPG9C');</script>
+      <!-- End Google Tag Manager -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135367989-2"></script>
+  <script>
+          let personId = localStorage.getItem('personId');
+  
+          if (personId === null) {
+            personId = Math.random() * (200,000,000,000 - 1) + 1;
+            localStorage.setItem('personID', personId);
           }
-        };
-        // const urlParams = new URLSearchParams(window.location.search);
-        gtag('config', 'UA-135367989-2', customMap);
-        gtag('event', 'session_start', {'personId': personId});
-        gtag('event', 'session_start', {'sessionId': sessionId});
-        gtag('event', 'session_start', {'timestamp': Date.now()});
-       
-    </script>
+          
+          let sessionId = sessionStorage.getItem('sessionId');;
+          
+          if (sessionId === null) {
+            sessionId = Math.random() * (200,000,000,000 - 1) + 1;
+            sessionStorage.setItem('sessionId', sessionId);
+          }
+  
+          window.dataLayer = window.dataLayer || [];
+          function gtag () {
+              dataLayer.push(arguments);
+          }
+          const customMap = {
+            'custom_map': {
+              'dimension1': 'personId',
+              'dimension2': 'sessionId',
+              'dimension3': 'timestamp'
+            }
+          };
+          // const urlParams = new URLSearchParams(window.location.search);
+          gtag('config', 'UA-135367989-2', customMap);
+          gtag('event', 'session_start', {'personId': personId});
+          gtag('event', 'session_start', {'sessionId': sessionId});
+          gtag('event', 'session_start', {'timestamp': Date.now()});
+         
+      </script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Orthopedics</title>

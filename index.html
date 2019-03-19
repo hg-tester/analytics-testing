@@ -11,22 +11,20 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135367989-2"></script>
 <script>
-        let personId = undefined;
-        let sessionId = undefined;
-        if (localStorage.personId) {
-          personId = localStorage.getItem('personId');
-        }
-        else {
+        let personId = localStorage.getItem('personId');
+
+        if (personId === null) {
           personId = Math.random() * (200,000,000,000 - 1) + 1;
           localStorage.setItem('personID', personId);
         }
-        if (sessionStorage.sessionId) {
-          sessionId = sessionStorage.getItem('sessionId');
-        }
-        else {
+        
+        let sessionId = sessionStorage.getItem('sessionId');;
+        
+        if (sessionId === null) {
           sessionId = Math.random() * (200,000,000,000 - 1) + 1;
           sessionStorage.setItem('sessionId', sessionId);
         }
+
         window.dataLayer = window.dataLayer || [];
         function gtag () {
             dataLayer.push(arguments);
